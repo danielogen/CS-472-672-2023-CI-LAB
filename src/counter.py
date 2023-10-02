@@ -28,3 +28,12 @@ def update_counter(name):
     global COUNTERS
     COUNTERS[name] += 1
     return {name:   COUNTERS[name]}, status.HTTP_200_OK
+
+
+@app.route('/counters/<name>', methods=['delete'])
+def delete_counter(name):
+    """Update a counter"""
+    app.logger.info(f"Request to delete counter: {name}")
+    global COUNTERS
+    del COUNTERS[name]
+    return COUNTERS, status.HTTP_204_NO_CONTENT
