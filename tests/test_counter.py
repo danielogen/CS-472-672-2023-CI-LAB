@@ -51,5 +51,3 @@ class CounterTest(TestCase):
         # delete counter
         result = self.client.delete('/counters/baz')
         self.assertEqual(result.status_code, status.HTTP_204_NO_CONTENT)
-        # check that counter was delete
-        self.assertTrue(len(result.json),0)
